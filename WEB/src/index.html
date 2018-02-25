@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+    <nav class="bg-primary navbar navbar-dark navbar-expand-lg">
+        <a class="navbar-brand"
+           href="#">
+            PIERRE
+        </a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarColor01"
+                aria-controls="navbarColor01"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbarColor01">
+            <ul class="mr-auto navbar-nav">
+                <li class="active nav-item">
+                    <a class="nav-link"
+                       href="#">
+                        Home <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">
+                        Features
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">
+                        Pricing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">
+                        About
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2"
+                       placeholder="Search"
+                       type="text">
+                <button class="btn btn-secondary my-2 my-sm-0"
+                        type="submit">
+                    Search
+                </button>
+            </form>
+        </div>
+    </nav>
+    <div id="app"
+         class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <!-- Button trigger modal -->
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Cras justo odio
+                        <i class="fas fa-home fa-lg"></i>
+                        <i class="fas fa-chess fa-flip-vertical"></i>
+                        <i class="fas fa-book fa-flip-vertical"></i>
+                        <i class="fas fa-binoculars fa-sm"></i>
+                        <i class="fas fa-address-card"></i>
+                        <span class="badge badge-primary badge-pill">3</span>
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Dapibus ac facilisis in
+                        <span class="badge badge-primary badge-pill">2</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Morbi leo risus
+                        <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                Pierre
+            </div>
+            <div class="col">
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="staticEmail2" class="sr-only">Email</label>
+                        <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

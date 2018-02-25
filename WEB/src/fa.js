@@ -1,0 +1,1 @@
+﻿import './fa/font-awesome.config.scss';

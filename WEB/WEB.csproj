@@ -5,6 +5,27 @@
     <UserSecretsId>aspnet-WEB-65D3BD02-A029-4869-9074-D8EA24EAA579</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\dist\assets\**" />
+    <Compile Remove="wwwroot\dist\fonts\**" />
+    <Content Remove="wwwroot\dist\assets\**" />
+    <Content Remove="wwwroot\dist\fonts\**" />
+    <EmbeddedResource Remove="wwwroot\dist\assets\**" />
+    <EmbeddedResource Remove="wwwroot\dist\fonts\**" />
+    <None Remove="wwwroot\dist\assets\**" />
+    <None Remove="wwwroot\dist\fonts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\img\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="src\img\favicon.ico">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
@@ -16,6 +37,21 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\tmpPurifyCss\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\dist\css\app.css.map" />
+    <None Include="wwwroot\dist\css\fa.css.map" />
+    <None Include="wwwroot\dist\js\app.bundle.js" />
+    <None Include="wwwroot\dist\js\app.bundle.js.map" />
+    <None Include="wwwroot\dist\js\fa.bundle.js" />
+    <None Include="wwwroot\dist\js\fa.bundle.js.map" />
+    <None Include="wwwroot\dist\js\jqueryValidation.bundle.js" />
+    <None Include="wwwroot\dist\js\jqueryValidation.bundle.js.map" />
   </ItemGroup>
 
 </Project>

@@ -6,6 +6,18 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
+    
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2"
+               placeholder="Search"
+               type="text">
+        <button class="btn btn-secondary my-2 my-sm-0"
+                type="submit">
+            Search
+        </button>
+    </form>
+
+@*
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li>
@@ -23,4 +35,5 @@ else
         <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
         <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
     </ul>
+*@
 }
