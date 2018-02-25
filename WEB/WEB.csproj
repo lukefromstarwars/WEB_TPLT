@@ -40,10 +40,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\tmpPurifyCss\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\dist\css\app.css.map" />
     <None Include="wwwroot\dist\css\fa.css.map" />
     <None Include="wwwroot\dist\js\app.bundle.js" />
