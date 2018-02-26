@@ -1,13 +1,14 @@
 ﻿'use strict';
+
+// VARIABLES CONFIG
 const path = require('path');
-const glob = require('glob-all');
+//const glob = require('glob-all');
 const isProd = process.env.NODE_ENV === 'production';
 
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
+//const PurifyCSSPlugin = require('purifycss-webpack');
 
 
 const paths = {
@@ -17,10 +18,8 @@ const paths = {
 };
 
 console.log(process.env.NODE_ENV);
-//console.log(paths.dist + '\\index.html');
-//console.log(paths.src + '\\app.js');
 
-// DEV
+// CSS CONFIG
 const cssDev = [
     {
         loader: 'style-loader'
@@ -31,7 +30,7 @@ const cssDev = [
     {
         loader: 'postcss-loader',
         options: {
-            plugins: function () {
+            plugins: function() {
                 return [
                     require('precss'),
                     require('autoprefixer')
@@ -43,6 +42,18 @@ const cssDev = [
     }
 ];
 
+const cssProd = ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: [
+        'css-loader',
+        'postcss-loader',
+        'sass-loader'
+    ],
+    publicPath: paths.dist
+});
+
+
+// SERVER CONFIG
 
 const servDev = {
     progress: true,
@@ -54,23 +65,12 @@ const servDev = {
     stats: 'errors-only',
     hot: true
 };
-
-// PROD
-const cssProd = ExtractTextPlugin.extract({
-    fallback: 'style-loader',
-    use: [
-        'css-loader',
-        'postcss-loader',
-        'sass-loader'
-    ],
-    publicPath: paths.dist
-});
-
 const servProd = {
     progress: true,
     compress: true,
     contentBase: '.'
 };
+
 
 // SET CONFIG
 const cssConfig = isProd ? cssProd : cssDev;
@@ -80,14 +80,13 @@ const devtoolConfig = isProd ? 'source-map' : 'cheap-eval-source-map';
 module.exports = {
     entry: {
         jqueryValidation: ['jquery-validation', 'jquery-validation-unobtrusive'],
-//        fa: paths.src + '\\fa.js',
         app: paths.src + '\\app.js'
     },
     output: {
         path: paths.dist,
         filename: 'js/[name].bundle.js'
     },
-    devtool: devtoolConfig,
+    devtool: 'source-map',
     devServer: serverConfig,
     module: {
         rules: [
@@ -102,9 +101,8 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'fonts/', // where the fonts will go
-                            //                            publicPath: paths.dist
-                            publicPath: '../fonts/' // override the default path
+                            outputPath: 'fonts/',
+                            publicPath: '../fonts/'
                         }
                     }
                 ]
@@ -116,9 +114,8 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'assets/', // where the fonts will go
-                            //                            publicPath: paths.dist
-                            publicPath: '../assets/' // override the default path
+                            outputPath: 'assets/',
+                            publicPath: '../assets/'
                         }
                     }
                 ]
@@ -154,24 +151,26 @@ module.exports = {
             disable: !isProd,
             allChunks: true
         }),
-        //        new PurifyCSSPlugin({
+/*
+                new PurifyCSSPlugin({
+                    paths: glob.sync([
+                        paths.src + '\\index.html',
+                        paths.dist + '\\tmpPurifyCss\\*.html',
+                        paths.dist + '\\**\\*.js',
+                        paths.views + '\\Shared\\**\\*.cshtml'
+                    ]),
         //            paths: glob.sync([
-        //                paths.src + '\\index.html',
-        ////                paths.dist + '\\tmpPurifyCss\\*.html',
-        ////                paths.dist + '\\**\\*.js',
-        ////                paths.views + '\\Shared\\**\\*.cshtml'
+        //                path.join(__dirname, 'wwwroot/*.html'),
+        //                path.join(__dirname, 'wwwroot/*#1#*.js'),
+        //                path.join(__dirname, 'src/tmpPurifyCss/*.html')
         //            ]),
-        ////            paths: glob.sync([
-        ////                path.join(__dirname, 'wwwroot/*.html'),
-        ////                path.join(__dirname, 'wwwroot/**/*.js'),
-        ////                path.join(__dirname, 'src/tmpPurifyCss/*.html')
-        ////            ]),
-        //            purifyOptions: {
-        //                info: true,
-        //                minify: isProd,
-        //                whitelist: [ '*:not*' ]
-        //            }
-        //        }),
+                    purifyOptions: {
+                        info: true,
+                        minify: isProd,
+                        whitelist: [ '*:not*' ]
+                    }
+                }),
+*/
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]

@@ -6,17 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\dist\assets\**" />
-    <Compile Remove="wwwroot\dist\fonts\**" />
-    <Content Remove="wwwroot\dist\assets\**" />
-    <Content Remove="wwwroot\dist\fonts\**" />
-    <EmbeddedResource Remove="wwwroot\dist\assets\**" />
-    <EmbeddedResource Remove="wwwroot\dist\fonts\**" />
-    <None Remove="wwwroot\dist\assets\**" />
-    <None Remove="wwwroot\dist\fonts\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="src\img\favicon.ico" />
   </ItemGroup>
 
@@ -40,14 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\dist\css\app.css.map" />
-    <None Include="wwwroot\dist\css\fa.css.map" />
     <None Include="wwwroot\dist\js\app.bundle.js" />
-    <None Include="wwwroot\dist\js\app.bundle.js.map" />
-    <None Include="wwwroot\dist\js\fa.bundle.js" />
-    <None Include="wwwroot\dist\js\fa.bundle.js.map" />
     <None Include="wwwroot\dist\js\jqueryValidation.bundle.js" />
-    <None Include="wwwroot\dist\js\jqueryValidation.bundle.js.map" />
   </ItemGroup>
 
 </Project>
